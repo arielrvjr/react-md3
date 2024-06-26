@@ -1,0 +1,17 @@
+{
+  "name": "react-md3-demo-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["react-md3-demo"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/react-md3-demo-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["react-md3-demo:build"]
+    }
+  }
+}

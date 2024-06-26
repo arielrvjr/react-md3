@@ -1,0 +1,56 @@
+{
+  "name": "react-md3-demo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-md3-demo/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/react-md3-demo",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/react-md3-demo/src/main.ts",
+        "tsConfig": "apps/react-md3-demo/tsconfig.app.json",
+        "assets": ["apps/react-md3-demo/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "react-md3-demo:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-md3-demo:build:development"
+        },
+        "production": {
+          "buildTarget": "react-md3-demo:build:production"
+        }
+      }
+    }
+  }
+}

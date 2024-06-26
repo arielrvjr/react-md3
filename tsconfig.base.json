@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@react-md3/style": ["lib/style/src/index.ts"]
+      "@react-md3/style": ["lib/style/src/index.ts"],
+      "@react-md3/web": ["lib/web/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

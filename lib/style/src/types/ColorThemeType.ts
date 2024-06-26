@@ -1,0 +1,42 @@
+export type ColorPaletteType = {
+    primary: string,
+    primaryContainer: string,
+    secondary: string,
+    secondaryContainer: string,
+    tertiary: string,
+    tertiaryContainer: string,
+    surface: string,
+    surfaceVariant: string,
+    surfaceContainerHighest: string,
+    surfaceContainerHigh: string,
+    surfaceContainer: string,
+    surfaceContainerLow: string,
+    surfaceContainerLowest: string,
+    surfaceTintColor: string,
+    surfaceTint: string,
+    background: string,
+    error: string,
+    errorContainer: string,
+    onPrimary: string,
+    onPrimaryContainer: string,
+    onSecondary: string,
+    onSecondaryContainer: string,
+    onTertiary: string,
+    onTertiaryContainer: string,
+    onSurface: string,
+    onSurfaceVariant: string,
+    onError: string,
+    onErrorContainer: string,
+    onBackground: string,
+    outline:string,
+    outlineVariant: string,
+    shadow: string,
+    inverseSurface: string,
+    inverseOnSurface: string,
+    inversePrimary:string,
+    scrim:string
+}
+
+export type ColorThemeType = {
+    color:ColorPaletteType
+}

@@ -36,5 +36,10 @@
       },
       "exclude": ["apps/react-md3-demo-e2e/**/*"]
     }
-  ]
+  ],
+  "generators": {
+    "@nx/react": {
+      "library": {}
+    }
+  }
 }

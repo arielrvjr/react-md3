@@ -40,6 +40,7 @@ export type PaletteType = {
   tertiary100: string;
   neutral0: string;
   neutral4: string;
+  neutral6: string;
   neutral10: string;
   neutral12: string;
   neutral17: string;
@@ -51,11 +52,13 @@ export type PaletteType = {
   neutral60: string;
   neutral70: string;
   neutral80: string;
+  neutral87: string;
   neutral90: string;
   neutral92: string;
   neutral94: string;
   neutral95: string;
   neutral96: string;
+  neutral98: string;
   neutral99: string;
   neutral100: string;
   neutralVariant0: string;

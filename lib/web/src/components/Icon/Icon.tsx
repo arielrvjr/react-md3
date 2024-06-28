@@ -1,6 +1,10 @@
 "use client";
 import React from 'react';
-import { Serializer } from 'v8';
+import '@material-design-icons/font';
+import { MaterialIcon } from '@material-design-icons/font';
+
+import styled from 'styled-components';
+import { ColorPaletteType } from '@react-md3/style';
 
 const VARIANTS = {
 	filled: 'material-icons',
@@ -10,18 +14,24 @@ const VARIANTS = {
 	twoTone: "material-icons-two-tone",
 }
 
-type SizeType = 20 | 24 | 40 | 48;
+type SizeType = 16 | 20 | 24 | 36 | 40 | 48;
 
 export type IconProps = {
-	iconName: string,
+	iconName: MaterialIcon,
 	variant?: keyof typeof VARIANTS,
 	size?: SizeType
-	color?: string
+	color?: keyof ColorPaletteType
 }
+
+const IconStl = styled.i<Pick<IconProps, 'size' | 'color'>>(({ theme, size, color }) => ({
+	color: color ? theme.color[color] : theme.color.primary,
+	fontSize: size,
+	fontWeight: 400
+}));
 
 const Icon = ({ iconName, color, variant = 'filled', size = 24 }: IconProps) => {
 	return (
-		<i className={VARIANTS[variant]} style={{ width: size, height: size, color: color }}> {iconName}</i >
+		<IconStl className={VARIANTS[variant]} color={color} size={size}>{iconName}</IconStl>
 	);
 };
 

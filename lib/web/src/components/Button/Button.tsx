@@ -5,6 +5,9 @@ import { TonalButton } from './TonalButton';
 import { OutlinedButton } from './OutlinedButton';
 import { TextButton } from './TextButton';
 import { BaseButtonProps } from './BaseButton';
+import { useRipple } from '../../hooks/useRipple';
+import { RippleContainer } from '../RippleContainer';
+import styled from 'styled-components';
 
 type ButtonVariant = 'elevated' | 'filled' | 'tonal' | 'outlined' | 'text';
 
@@ -23,6 +26,8 @@ const ButtonVariants: Record<
   text: TextButton,
 };
 
+
+
 const Button = ({
   variant = 'elevated',
   children,
@@ -30,9 +35,19 @@ const Button = ({
   onClick,
 }: PropsWithChildren<ButtonProps>) => {
   const Current = ButtonVariants[variant];
+  const { ripples, createRipple } = useRipple();
+
   return (
-    <Current onClick={onClick} disabled={disabled}>
+    <Current onClick={(event) => { createRipple(event as React.MouseEvent<HTMLButtonElement, MouseEvent>); onClick && onClick() }} disabled={disabled}>
       {children}
+      {ripples.map((ripple, index) => (
+        <RippleContainer
+          key={index}
+          x={ripple.x}
+          y={ripple.y}
+          size={ripple.size}
+        />
+      ))}
     </Current>
   );
 };

@@ -12,7 +12,7 @@ const StyledDiv = styled.div(({ theme }) => ({
   height: '100vh',
 }));
 const meta = {
-  title: 'IconButton',
+  title: 'Buttons/IconButton',
   component: IconButton,
   tags: ['autodocs'],
   parameters: {

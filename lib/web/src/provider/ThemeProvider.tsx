@@ -4,7 +4,8 @@ import { ThemeProvider as ThemeProviderStyled } from 'styled-components';
 const DEFAULT_THEME = 'light';
 
 declare module 'styled-components' {
-  export type DefaultTheme = ThemeType
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface DefaultTheme extends ThemeType { }
 }
 
 const ThemeProvider = ({

@@ -1,8 +1,8 @@
 'use client';
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import { BaseButtonProps } from '../../Button/BaseButton';
 import { BaseIconButton } from '../BaseIconButton';
+import { BaseButtonProps } from 'components/Buttons/Button/BaseButton';
 
 export type TonalIconButtonProps = {
   // types...

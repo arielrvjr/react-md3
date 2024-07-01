@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import BottomAppBar from './BottomAppBar';
 import styled from 'styled-components';
-import { Fab } from '../../Fab';
 import { fn } from '@storybook/test';
-import { Icon } from '../../Icon';
 const StyledDiv = styled.div(({ theme }) => ({
   backgroundColor: theme.color.background,
   display: 'flex',

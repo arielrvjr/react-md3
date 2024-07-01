@@ -1,7 +1,7 @@
 'use client';
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import elevation from '../../../function/elevation';
+import { elevation } from '../../../../function';
 import {
   BaseButton,
   BaseButtonProps,

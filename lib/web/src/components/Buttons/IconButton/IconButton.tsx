@@ -1,13 +1,13 @@
 'use client';
 import React, { PropsWithChildren } from 'react';
-import Icon, { IconProps } from '../Icon/Icon';
-import { useRipple } from '../../hooks/useRipple';
-import { RippleContainer } from '../RippleContainer';
 import { BaseIconButtonProps } from './BaseIconButton/BaseIconButton';
 import { StandardIconButton } from './StandardIconButton';
 import { FilledIconButton } from './FilledIconButton';
 import { TonalIconButton } from './TonalIconButton';
 import { OutlinedIconButton } from './OutlinedIconButton';
+import { Icon, IconProps } from '../../Icon';
+import { useRipple } from '../../../hooks/useRipple';
+import { RippleContainer } from '../../RippleContainer';
 
 type IconButtonVariant = 'standard' | 'filled' | 'tonal' | 'outlined';
 
@@ -32,7 +32,7 @@ const IconButton = ({
   const Current = VARIANTS[variant];
   return (
     <Current
-      onClick={(event) => {
+      onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         createRipple(event as React.MouseEvent<HTMLButtonElement, MouseEvent>);
         onClick && onClick();
       }}

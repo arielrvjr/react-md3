@@ -7,7 +7,7 @@ import {
   StateBase,
   StateBaseProps,
 } from '../BaseButton';
-import { hexToRgba, elevation } from '../../../function';
+import { elevation } from '../../../../function';
 
 const TonalButton = ({
   children,

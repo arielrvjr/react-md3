@@ -1,6 +1,5 @@
 'use client';
 import React, { PropsWithChildren } from 'react';
-import styled from 'styled-components';
 import { ElevatedCard } from './ElevatedCard';
 import { FilledCard } from './FilledCard';
 import { OutlinedCard } from './OutlinedCard';

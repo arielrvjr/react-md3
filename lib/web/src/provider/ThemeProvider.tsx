@@ -4,7 +4,7 @@ import { ThemeProvider as ThemeProviderStyled } from 'styled-components';
 const DEFAULT_THEME = 'light';
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends ThemeType {}
+  export type DefaultTheme = ThemeType
 }
 
 const ThemeProvider = ({
@@ -17,7 +17,7 @@ const ThemeProvider = ({
     () => createTheme({ mode, palette }),
     [mode, palette]
   );
-  const themeMemo = useMemo(() => ({ ...internalTheme, ...theme }), [theme]);
+  const themeMemo = useMemo(() => ({ ...internalTheme, ...theme }), [internalTheme, theme]);
 
   return (
     <ThemeProviderStyled theme={themeMemo}>{children}</ThemeProviderStyled>

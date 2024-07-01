@@ -7,7 +7,7 @@ import {
   StateBase,
   StateBaseProps,
 } from '../BaseButton';
-import { elevation, hexToRgba } from '../../../function';
+import { elevation } from '../../../../function';
 
 const FilledButton = ({
   children,

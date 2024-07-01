@@ -2,11 +2,8 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { BaseIconButton } from '../BaseIconButton';
-import { BaseButtonProps } from '../../Button/BaseButton';
+import { BaseButtonProps } from 'components/Buttons/Button/BaseButton';
 
-export type OutlinedIconButtonProps = {
-  // types...
-};
 
 const OutlinedIconButton = (props: PropsWithChildren<BaseButtonProps>) => {
   return <OutlinedIconButtonStl {...props}></OutlinedIconButtonStl>;

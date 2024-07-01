@@ -1,6 +1,6 @@
 'use client';
 import styled, { keyframes } from 'styled-components';
-import { RippleProps } from '../../hooks/useRipple';
+import { RippleProps } from 'hooks/useRipple';
 
 const ripple = keyframes`
   from {

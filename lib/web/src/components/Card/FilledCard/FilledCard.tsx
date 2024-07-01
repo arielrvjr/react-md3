@@ -2,8 +2,7 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import BaseCard, { BaseCardProps } from '../BaseCard/BaseCard';
-import { elevation } from '../../../function';
-import { hexToRgba } from '../../../function';
+import { elevation, hexToRgba } from '../../../function';
 
 export type FilledCardProps = {
   // types...

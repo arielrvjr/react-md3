@@ -28,7 +28,7 @@ export const Large = {
     },
 } satisfies Story;
 
-export const LargeLongLabrl = {
+export const LargeLongLabel = {
     args: {
         size: 'large',
         label: '999+'

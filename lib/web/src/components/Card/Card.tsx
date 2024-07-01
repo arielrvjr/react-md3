@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { ElevatedCard } from './ElevatedCard';
@@ -6,20 +6,19 @@ import { FilledCard } from './FilledCard';
 import { OutlinedCard } from './OutlinedCard';
 import { BaseCardProps } from './BaseCard/BaseCard';
 
-type CardVariant = 'elevated' | 'filled' | 'outlined' ;
+type CardVariant = 'elevated' | 'filled' | 'outlined';
 
 export type CardProps = {
-	variant: CardVariant;
-} & BaseCardProps
+  variant: CardVariant;
+} & BaseCardProps;
 
 const CardVariants: Record<
-CardVariant,
+  CardVariant,
   ({ children, ...props }: PropsWithChildren<BaseCardProps>) => JSX.Element
 > = {
   elevated: ElevatedCard,
   filled: FilledCard,
   outlined: OutlinedCard,
-
 };
 
 /**
@@ -29,14 +28,13 @@ CardVariant,
  * @param props - Additional properties that are passed down to the selected card component.
  * @returns JSX element of the rendered card component corresponding to the specified variant.
  */
-const Card = ({ variant = 'elevated', children, ...props }: PropsWithChildren<CardProps>): JSX.Element => {
-    const Current = CardVariants[variant];
-    return (
-        <Current {...props}>
-            {children}
-        </Current>
-    );
+const Card = ({
+  variant = 'elevated',
+  children,
+  ...props
+}: PropsWithChildren<CardProps>): JSX.Element => {
+  const Current = CardVariants[variant];
+  return <Current {...props}>{children}</Current>;
 };
-
 
 export default Card;

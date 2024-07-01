@@ -5,7 +5,7 @@
  * @param {number} [opacity=1] - La opacidad del color, opcional, con un valor por defecto de 1.
  * @returns {string} El color en formato rgba.
  */
-const hexToRgba = (hex: string, opacity = 1): string  => {
+const hexToRgba = (hex: string, opacity = 1): string => {
   hex = hex.replace(/^#/, '');
 
   // Si el valor es de 3 caracteres, convertirlo a 6 caracteres
@@ -24,6 +24,6 @@ const hexToRgba = (hex: string, opacity = 1): string  => {
 
   // Construir el valor rgba
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-}
+};
 
 export default hexToRgba;

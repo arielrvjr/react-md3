@@ -15,7 +15,7 @@ export const decorators = [
     themes,
     defaultTheme: 'light',
     Provider: ThemeProvider,
-    GlobalStyles
+    GlobalStyles,
   }),
 ];
 
@@ -29,7 +29,6 @@ const preview: Preview = {
       ],
     },
   },
-
 };
 
 export default preview;

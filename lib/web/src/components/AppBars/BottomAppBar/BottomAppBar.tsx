@@ -1,57 +1,55 @@
-"use client";
-import React, { PropsWithChildren, useContext, useEffect } from 'react';
+'use client';
+import React from 'react';
 import styled from 'styled-components';
 import { elevation } from '../../../function';
-import Fab, { FabProps } from '../../Fab/Fab';
-import IconButton, { IconButtonProps } from '../../IconButton/IconButton';
+import { IconProps } from '../../Icon';
+import { BaseIconButtonProps } from '../../Buttons/IconButton/BaseIconButton/BaseIconButton';
+import { IconButton, Fab, FabProps } from '../../Buttons';
 
 export type BottomAppBarProps = {
-	// types...
-}
+	icons: BottomAppBarIconProps[],
+	fab?: BottomAppBarFabProps
+};
 
-type ContextProps = {
-	hasFAB: boolean,
-	updateFAB: (hasFAB: boolean) => void
-}
-
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const BottomAppBarContext = React.createContext<ContextProps>({ hasFAB: false, updateFAB: () => { } });
-
-const BottomAppBar = ({ children }: PropsWithChildren<BottomAppBarProps>) => {
-	const [hasFAB, setHasFAB] = React.useState(false);
-	const updateFAB = (hasFAB: boolean) => setHasFAB(hasFAB);
+const BottomAppBar: React.FC<BottomAppBarProps> = ({ icons, fab }) => {
 	return (
-		<BottomAppBarContext.Provider value={{ hasFAB, updateFAB }}>
-			<BottomAppBarStl hasFAB={hasFAB}>
-				{children}
-			</BottomAppBarStl>
-		</BottomAppBarContext.Provider>
+		<BottomAppBarStl hasFAB={!!fab}>
+			<BottomAppBarIcons>
+				{icons.map(i => <BottomAppBarIconButton {...i} />)}
+			</BottomAppBarIcons>
+			{fab && (<Fab variant='primary' elevation={0} onClick={fab.onClick}><Fab.Icon iconName={fab.iconName} size={24} /></Fab>)}
+		</BottomAppBarStl >
 	);
 };
 
-const BottomAppBarFAB = ({ ...args }: PropsWithChildren<FabProps>) => {
-	const { updateFAB } = useContext(BottomAppBarContext);
-	useEffect(() => updateFAB(true), [updateFAB]);
-	return <Fab {...args} elevation={0} />
-}
-const BottomAppBarIcons = ({ children }: PropsWithChildren) => (<div>{children}</div>);
-const BottomAppBarIcon = ({ ...args }: PropsWithChildren<IconButtonProps>) => (<IconButton {...args} />)
-
-
-export const BottomAppBarStl = styled.div<{ hasFAB: boolean }>(({ theme, hasFAB }) => ({
-	...theme.shape.corner.none,
-	backgroundColor: theme.color.surfaceContainer,
-	boxShadow: elevation(theme.elevation.level2, theme.color.shadow),
-	color: theme.color.surfaceTint,
-	height: hasFAB ? 72 : 80,
-	padding: '12px 16px 12px 4px',
-	width: '100%',
+const BottomAppBarIcons = styled.div(() => ({
 	display: 'flex',
-	flexDirection: 'row',
-	alignItems: 'center',
-	justifyContent: 'space-between'
+	columnGap: 16
 }));
-BottomAppBar.Icons = BottomAppBarIcons;
-BottomAppBar.Icon = BottomAppBarIcon;
-BottomAppBar.FAB = BottomAppBarFAB;
+
+type BottomAppBarIconProps = Pick<IconProps, 'iconName'> & BaseIconButtonProps
+type BottomAppBarFabProps = Pick<IconProps, 'iconName'> & Pick<FabProps, 'onClick'>
+const BottomAppBarIconButton = ({ iconName, onClick }: BottomAppBarIconProps) => (
+	<IconButton variant='standard' onClick={onClick}><IconButton.Icon iconName={iconName} size={16} /></IconButton>
+);
+
+export const BottomAppBarStl = styled.div<{ hasFAB: boolean }>(
+	({ theme, hasFAB }) => ({
+		...theme.shape.corner.none,
+		backgroundColor: theme.color.surfaceContainer,
+		boxShadow: elevation(theme.elevation.level2, theme.color.shadow),
+		color: theme.color.surfaceTint,
+		height: hasFAB ? 72 : 80,
+		width: '100%',
+		paddingLeft: 16,
+		paddingRight: 16,
+		paddingTop: 12,
+		paddingBottom: 12,
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	})
+);
+
 export default BottomAppBar;

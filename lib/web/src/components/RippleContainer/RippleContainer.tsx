@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import styled, { keyframes } from 'styled-components';
 import { RippleProps } from '../../hooks/useRipple';
 

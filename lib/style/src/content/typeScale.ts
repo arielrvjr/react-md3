@@ -25,7 +25,7 @@ export const typeScale: TypeScaleType = {
       fontWeight: typeFace.weight.regular,
     },
   },
-  headLine: {
+  headline: {
     large: {
       fontFamily: typeFace.brand,
       lineHeight: 40,

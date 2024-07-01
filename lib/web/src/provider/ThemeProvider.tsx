@@ -1,17 +1,27 @@
-import { PropsWithChildren, useMemo } from "react";
+import { PropsWithChildren, useMemo } from 'react';
 import { ThemeType, createTheme, createThemeProps } from '@react-md3/style';
 import { ThemeProvider as ThemeProviderStyled } from 'styled-components';
-const DEFAULT_THEME = "light"
+const DEFAULT_THEME = 'light';
 
-declare module "styled-components" {
-    export interface DefaultTheme extends ThemeType { }
+declare module 'styled-components' {
+  export interface DefaultTheme extends ThemeType {}
 }
 
-const ThemeProvider = ({ mode = DEFAULT_THEME, theme, palette, children }: PropsWithChildren<createThemeProps>) => {
-    const internalTheme = useMemo(() => createTheme({ mode, palette }), [mode, palette]);
-    const themeMemo = useMemo(() => ({ ...internalTheme, ...theme }), [theme]);
+const ThemeProvider = ({
+  mode = DEFAULT_THEME,
+  theme,
+  palette,
+  children,
+}: PropsWithChildren<createThemeProps>) => {
+  const internalTheme = useMemo(
+    () => createTheme({ mode, palette }),
+    [mode, palette]
+  );
+  const themeMemo = useMemo(() => ({ ...internalTheme, ...theme }), [theme]);
 
-    return <ThemeProviderStyled theme={themeMemo}>{children}</ThemeProviderStyled>
+  return (
+    <ThemeProviderStyled theme={themeMemo}>{children}</ThemeProviderStyled>
+  );
 };
 
-export default ThemeProvider
+export default ThemeProvider;

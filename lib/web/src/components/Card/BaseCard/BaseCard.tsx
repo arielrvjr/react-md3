@@ -13,9 +13,12 @@ export const BaseCard = styled.div<BaseCardProps>(({ theme, disabled }) => ({
   margin: '8px',
   textAlign: 'start',
   ...(disabled && {
-      boxShadow: elevation(theme.elevation.level0, theme.color.shadow),
-      backgroundColor: hexToRgba(theme.color.surface, theme.state.disabled.container),
-      color: hexToRgba(theme.color.onSurface, theme.state.disabled.content),
+    boxShadow: elevation(theme.elevation.level0, theme.color.shadow),
+    backgroundColor: hexToRgba(
+      theme.color.surface,
+      theme.state.disabled.container
+    ),
+    color: hexToRgba(theme.color.onSurface, theme.state.disabled.content),
   }),
 }));
 

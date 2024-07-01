@@ -33,7 +33,7 @@ export const ElevatedCardStl = styled(BaseCard)(
           theme.color.onSurface,
           theme.state.pressed.container
         ),
-		transition: 'background 0s'
+        transition: 'background 0s',
       },
     }
 );

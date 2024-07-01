@@ -10,15 +10,15 @@ export type TypeScaleContentType = {
 };
 
 export type TypeScaleScaleType = {
-    large: TypeScaleContentType,
-    medium: TypeScaleContentType,
-    small: TypeScaleContentType
-}
+  large: TypeScaleContentType;
+  medium: TypeScaleContentType;
+  small: TypeScaleContentType;
+};
 
 export type TypeScaleType = {
-    display: TypeScaleScaleType,
-    headLine: TypeScaleScaleType,
-    title: TypeScaleScaleType,
-    label: TypeScaleScaleType,
-    body: TypeScaleScaleType
-}
+  display: TypeScaleScaleType;
+  headline: TypeScaleScaleType;
+  title: TypeScaleScaleType;
+  label: TypeScaleScaleType;
+  body: TypeScaleScaleType;
+};

@@ -6,7 +6,7 @@ const meta = {
     component: Badge,
     tags: ['autodocs'],
     parameters: {
-        layout: 'fullscreen',
+        layout: 'centered',
     },
     argTypes: {},
 } satisfies Meta<typeof Badge>;

@@ -12,7 +12,7 @@ export const shape: ShapeType = {
       borderRadius: 4,
     },
     small: {
-      borderRadius: 0,
+      borderRadius: 8,
     },
     medium: {
       borderRadius: 12,
@@ -20,8 +20,8 @@ export const shape: ShapeType = {
     large: {
       borderRadius: 16,
     },
-    largeEnd:{
-        borderRadius: 4
+    largeEnd: {
+      borderRadius: 4,
     },
     largeTop: {
       borderRadius: 16,
